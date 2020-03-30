@@ -1,3 +1,7 @@
+// Лабораторная работа № 10. Указатель на функцию
+// Задание 2
+// Вариант 3.
+// Студента группы 10701219 Харлапа Сергея Александровича
 #include <iostream>
 #include <cmath>
 using namespace std;
@@ -38,12 +42,12 @@ double CalculateFunctionByConsernLineMethod(double a, double b, double x, double
 
 int main() {
 
-	cout << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F1) << endl;
+	cout << "F1 " << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F1) << endl;
 
-	cout << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F2) << endl;
+	cout << "F2 " << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F2) << endl;
 
-	cout << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F3) << endl;
+	cout << "F3 " << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F3) << endl;
 
-	cout << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F4) << endl;
+	cout << "F4 " << CalculateFunctionByConsernLineMethod(0.4, 1, 0.4, F4) << endl;
 	return 0;
 }

@@ -1,5 +1,7 @@
-﻿// task3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿// Лабораторная работа № 10. Указатель на функцию
+// Задание 3
+// Вариант 3.
+// Студента группы 10701219 Харлапа Сергея Александровича
 
 #include <iostream>
 #include <cmath>
@@ -23,6 +25,34 @@ double (EXP)(double x, double y) {
     return ans;
 }
 
+double Parser(char* boof) {
+    double integer = 0;
+    double remainder = 0;
+    double divider = 10;
+    bool pointFlag = false();
+
+    int i = 0;
+    while (('0' <= boof[i]  && boof[i] <= '9') || boof[i] == '.') {
+        if (boof[i] == '.') {
+            pointFlag = true;
+            i++;
+            continue;
+        }
+        if (!pointFlag) {
+            integer *= 10;
+            integer += int(boof[i] - '0');
+        }
+        else {
+            remainder += int(boof[i] - '0');
+            remainder *= 10;
+            divider *= 10;
+        }
+        i++;
+    }
+
+    return integer + remainder/divider;
+}
+
 int main(int argc, char **argv)
 {
    
@@ -33,30 +63,21 @@ int main(int argc, char **argv)
 
     while (true) {
         char* boof = new char[10];
-        boof = *(++argv);
-        cout << boof << "\n";
+        boof = argv[1];
         if (strcmp(boof, "sin") == 0) {
-            cout << "enter x- ";
-            double x;
-            cin >> x;
+            double x = Parser(argv[2]);
             cout << "sin(x) - " << pToSin(x);
         }
         else if (strcmp(boof, "kv") == 0) {
-            cout << "enter x- ";
-            double x;
-            cin >> x;
+            double x = Parser(argv[2]);
             cout << "x^2 - " << pToKv(x);
         }
         else if(strcmp(boof, "gip") == 0) {
-            cout << "enter(a, b)- ";
-            double a, b;
-            cin >> a >> b;
+            double a = Parser(argv[2]), b = Parser(argv[3]);
             cout << "gip(a,b) - " << pToGip(a, b);
         }
         else if (strcmp(boof, "exp") == 0) {
-            double x, y;
-            cout << "enter x, y -";
-            cin >> x >> y;
+            double x = Parser(argv[2]), y = Parser(argv[3]);
             cout << "x^y - " << pToExp(x, y);
         }
         else {
@@ -67,14 +88,3 @@ int main(int argc, char **argv)
 
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
